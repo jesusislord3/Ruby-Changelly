@@ -6,12 +6,12 @@ require "Ruby/Changelly/version"
 Gem::Specification.new do |spec|
   spec.name          = "Ruby-Changelly"
   spec.version       = Ruby::Changelly::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
+  spec.authors       = ["Jason Crockett"]
+  spec.email         = ["JesusIsLord33333@outlook.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{An Unoffical but hopefully working api for interacting and trading on changelly.com}
+  # spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.homepage      = "https://github.com/jesusislord3/Ruby-Changelly"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
