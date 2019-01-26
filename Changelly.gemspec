@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "Ruby/Changelly/version"
+require "Changelly/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "Ruby-Changelly"
-  spec.version       = Ruby::Changelly::VERSION
+  spec.name          = "changelly"
+  spec.version       = Changelly::VERSION
   spec.authors       = ["Jason Crockett"]
   spec.email         = ["JesusIsLord33333@outlook.com"]
 

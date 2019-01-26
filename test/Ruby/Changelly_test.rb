@@ -1,11 +1,11 @@
 require "test_helper"
-require 'Ruby/Changelly/version'
-require 'Ruby/Changelly'
+require 'Changelly/version'
+require 'Changelly'
 require 'json'
 
 # A low priority work in progress. untested. test_api_key_is_valid is assumed to work
 
-class Ruby::ChangellyTest < Minitest::Test
+class ChangellyTest < Minitest::Test
   def test_that_it_has_a_version_number
     refute_nil ::Ruby::Changelly::VERSION
   end
