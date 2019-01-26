@@ -33,7 +33,7 @@ module Ruby
         # result was gained from here:
         # https://ruby-doc.org/stdlib-2.4.2/libdoc/openssl/rdoc/OpenSSL/HMAC.html
         @@hmac = OpenSSL::HMAC.digest("SHA512",api_secret,message.to_s)
-        return @@hmac
+        return String @@hmac
       end
       def send_message(message = {'jsonrpc' => '2.0','id' => 'responselabel','method' => 'getExchangeAmount','params' => [{'from'=>'eur','to' => 'btc' ,'amount'=> '3'}]},api_secret=@api_secret)
         # https://old.changelly.com/developers#protocol
@@ -51,14 +51,14 @@ module Ruby
         @@message = {'jsonrpc' => '2.0','id' => id.to_s,'method' => 'getCurrenciesFull','params' => {}}
          results = send_message @@message
          parsed_results = JSON.parse(results)
-         return parsed_results["result"]
+         return Array parsed_results["result"]
       end
       def getCurrencies(id='ruby-changelly-getCurrencies')
           # https://old.changelly.com/developers#currency-list
          @@message = {'jsonrpc' => '2.0','id' => id.to_s,'method' => 'getCurrencies','params' => {}}
          results = send_message @@message
          parsed_results = JSON.parse(results)
-         return parsed_results["result"]
+         return Array parsed_results["result"]
       end
       def getMinAmount(from_currency,to_currency)
         # https://old.changelly.com/developers#currency-list
@@ -69,7 +69,7 @@ module Ruby
         }
         results = send_message @@message
         parsed_results = JSON.parse(results)
-        return parsed_results["result"]
+        return Hash parsed_results["result"]
       end
       def getExchangeAmount(currencies_hash_array)
         # gets the estimated amount of coins resulting from an exchange.
@@ -79,7 +79,7 @@ module Ruby
         @@message = {'jsonrpc' => '2.0','id' => id.to_s,'method' => 'getExchangeAmount','params' => currencies_hash_array}
         results = send_message @@message
         parsed_results = JSON.parse(results)
-        return parsed_results["result"]
+        return Hash parsed_results["result"]
       end
       def createTransaction(from_currency,to_currency,recipient_address,amount,extra_id="null",refund_address="null",refund_extra_id="null")
         # create a transaction to finalise by sending funds.
@@ -94,7 +94,7 @@ module Ruby
         }
         results = send_message @@message
         parsed_results = JSON.parse(results)
-        return parsed_results["result"]
+        return Hash parsed_results["result"]
       end
       def getStatus(transaction_id)
         @@message = {'jsonrpc' => '2.0','id' => id.to_s,'method' => 'getStatus','params' =>
@@ -102,7 +102,7 @@ module Ruby
         }
         results = send_message @@message
         parsed_results = JSON.parse(results)
-        return parsed_results["result"]
+        return Hash parsed_results["result"]
       end
     end
   end
